@@ -14,9 +14,28 @@ than simply calling `strpos` many times, and it's much faster than calling
 I originally wrote this to use with [F5Bot](https://f5bot.com), since it's
 searching for the same set of a few thousand keywords over and over again.
 
+# Install via Composer
+
+Add the following to your project's `composer.json`:
+
+```json
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/codeplea/ahocorasickphp"
+        }
+    ],
+```
+
+Then, install the package itself:
+
+```bash
+$ composer install codeplea/ahocorasickphp
+```
+
 # Usage
 
-It's designed to be really easy to use. You create the `ahocorasick` object,
+It's designed to be really easy to use. You create the `Search` object,
 add your keywords, call `finalize()` to finish setup, and then search your
 text. It'll return an array of the keywords found and their position in the
 search text.
