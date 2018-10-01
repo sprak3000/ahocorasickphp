@@ -19,8 +19,7 @@
     },
     "autoload": {
         "psr-4": {
-            "codeplea\\AhoCorasick\\": "src",
-            "sprak3000\\AnimeNewsNetworkDataAPI\\Test\\": "test/phpunit/"
+            "codeplea\\AhoCorasick\\": "src"
         }
     }
 }
