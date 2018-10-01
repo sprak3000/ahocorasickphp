@@ -24,9 +24,9 @@ search text.
 Create, add keywords, and `finalize()`:
 
 ```php
-require('AhoCorasick.php');
+use codeplea\AhoCorasick\Search;
 
-$ac = new AhoCorasick();
+$ac = new Search();
 
 $ac->addNeedle('art');
 $ac->addNeedle('cart');
@@ -36,10 +36,10 @@ $ac->finalize();
 
 ```
 
-Call `search()` to preform the actual search. It'll return an array of matches.
+Call `execute()` to preform the actual search. It'll return an array of matches.
 
 ```php
-$found = $ac->search('a carted mart lot one blue ted');
+$found = $ac->execute('a carted mart lot one blue ted');
 print_r($found);
 ```
 
@@ -103,7 +103,7 @@ regex when it's not slightly broken?
 
 Also keep in mind that building the search tree (the `addNeedle()` and
 `finalize()` calls) takes time. So you'll get the best speed-up if you're
-reusing the same keywords and calling `search()` many times.
+reusing the same keywords and calling `execute()` many times.
 
 # Running tests
 

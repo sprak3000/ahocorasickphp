@@ -1,4 +1,7 @@
 <?php
+namespace codeplea\AhoCorasick;
+
+use \Exception;
 
 /*
  * ahocorasick - fast string searching in php
@@ -27,7 +30,7 @@
 
 
 
-class AhoCorasick
+class Search
 {
 
     private $nodes = [ [] ];
@@ -112,7 +115,7 @@ class AhoCorasick
      * @return array
      * @throws Exception
      */
-    public function search(string $haystack):array
+    public function execute(string $haystack):array
     {
         if (!$this->final) {
             throw new Exception('Must call finalize() before search.');

@@ -1,7 +1,13 @@
 {
     "name": "codeplea/ahocorasickphp",
     "description": "Aho-Corasick multi-keyword string searching library in PHP.",
+    "authors": [
+        {
+            "name": "Lewis Van Winkle"
+        }
+    ],
     "type": "library",
+    "license": "zlib",
     "config": {
         "sort-packages": true
     },
@@ -11,5 +17,10 @@
     "require-dev": {
         "phpunit/phpunit": "^7.3"
     },
-    "license": "zlib"
+    "autoload": {
+        "psr-4": {
+            "codeplea\\AhoCorasick\\": "src",
+            "sprak3000\\AnimeNewsNetworkDataAPI\\Test\\": "test/phpunit/"
+        }
+    }
 }

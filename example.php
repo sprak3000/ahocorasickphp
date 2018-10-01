@@ -1,8 +1,9 @@
 <?php
+use codeplea\AhoCorasick\Search;
 
 /* Just an example of how to use the library. */
 
-require 'AhoCorasick.php';
+require 'vendor/autoload.php';
 
 
 
@@ -15,7 +16,7 @@ require 'AhoCorasick.php';
 
 
 /* Create the search engine. */
-$ac = new AhoCorasick();
+$ac = new Search();
 
 
 /* Add each keyword we'll search for. */
@@ -34,7 +35,7 @@ $ac->finalize();
 /* And finally do the search. It should be fast. */
 
 /*                    012345678901234567890123456789 */
-$found = $ac->search('a carted mart lot one blue ted');
+$found = $ac->execute('a carted mart lot one blue ted');
 
 
 /* It'll return an array with each keyword found and its

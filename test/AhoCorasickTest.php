@@ -1,15 +1,14 @@
 <?php
 use PHPUnit\Framework\TestCase;
-
-require 'AhoCorasick.php';
+use codeplea\AhoCorasick\Search;
 
 class AhoCorasickTest extends TestCase
 {
-    protected $ahoCorasick;
+    protected $search;
 
     public function setUp()
     {
-        $this->ahoCorasick = new AhoCorasick();
+        $this->search = new Search();
 
         parent::setUp();
     }
@@ -24,41 +23,41 @@ class AhoCorasickTest extends TestCase
             ['ted', 27],
         ];
 
-        $this->ahoCorasick->addNeedle('art');
-        $this->ahoCorasick->addNeedle('cart');
-        $this->ahoCorasick->addNeedle('ted');
-        $this->ahoCorasick->finalize();
+        $this->search->addNeedle('art');
+        $this->search->addNeedle('cart');
+        $this->search->addNeedle('ted');
+        $this->search->finalize();
 
-        $found = $this->ahoCorasick->search('a carted mart lot one blue ted');
+        $found = $this->search->execute('a carted mart lot one blue ted');
 
         $this->assertSame($expectedResult, $found);
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException \Exception
      * @expectedExceptionMessage Must call finalize() before search.
      */
     public function testCannotSearchUnlessFinalized()
     {
-        $this->ahoCorasick->addNeedle('art');
-        $this->ahoCorasick->addNeedle('cart');
-        $this->ahoCorasick->addNeedle('ted');
+        $this->search->addNeedle('art');
+        $this->search->addNeedle('cart');
+        $this->search->addNeedle('ted');
 
-        $this->ahoCorasick->search('a carted mart lot one blue ted');
+        $this->search->execute('a carted mart lot one blue ted');
     }
 
     /**
-     * @expectedException Exception
+     * @expectedException \Exception
      * @expectedExceptionMessage Cannot add word to finalized ahocorasick.
      */
     public function testCannotAddNeedleAfterFinalize()
     {
-        $this->ahoCorasick->addNeedle('art');
-        $this->ahoCorasick->addNeedle('cart');
-        $this->ahoCorasick->addNeedle('ted');
+        $this->search->addNeedle('art');
+        $this->search->addNeedle('cart');
+        $this->search->addNeedle('ted');
 
-        $this->ahoCorasick->finalize();
+        $this->search->finalize();
 
-        $this->ahoCorasick->addNeedle('mart');
+        $this->search->addNeedle('mart');
     }
 }

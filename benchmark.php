@@ -1,10 +1,11 @@
 <?php
+use codeplea\AhoCorasick\Search;
 
 /* This program will benchmark searching for 1,000 keywords in a 5,000 word text all at once. */
 /* It compares our ahocorasick method with regex and strpos. */
 
 
-require 'AhoCorasick.php';
+require 'vendor/autoload.php';
 require 'benchmark_setup.php'; /* keywords and text */
 
 $loops = 10;
@@ -65,7 +66,7 @@ print('time: ' . ($et - $st) . "\n");
 
 
 print("\nSearching with aho corasick...\n");
-$ac = new AhoCorasick();
+$ac = new Search();
 foreach ($needles as $n) {
     $ac->addNeedle($n);
 }
@@ -73,7 +74,7 @@ $ac->finalize();
 
 $st = microtime(1);
 for ($loop = 0; $loop < $loops; ++$loop) {
-    $found = $ac->search($haystack);
+    $found = $ac->execute($haystack);
 }
 $et = microtime(1);
 print('time: ' . ($et - $st) . "\n");
