@@ -25,12 +25,15 @@ Add the following to your project's `composer.json`:
             "url": "https://github.com/codeplea/ahocorasickphp"
         }
     ],
+    "require": {
+        "codeplea/ahocorasickphp": "dev-master"
+    }
 ```
 
 Then, install the package itself:
 
 ```bash
-$ composer install codeplea/ahocorasickphp
+$ composer update
 ```
 
 # Usage
