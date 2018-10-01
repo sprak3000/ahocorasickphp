@@ -24,13 +24,13 @@ search text.
 Create, add keywords, and `finalize()`:
 
 ```php
-require('ahocorasick.php');
+require('AhoCorasick.php');
 
-$ac = new ahocorasick();
+$ac = new AhoCorasick();
 
-$ac->add_needle('art');
-$ac->add_needle('cart');
-$ac->add_needle('ted');
+$ac->addNeedle('art');
+$ac->addNeedle('cart');
+$ac->addNeedle('ted');
 
 $ac->finalize();
 
@@ -97,10 +97,17 @@ time: 0.054709911346436
 
 ```
 
-Note: the regex solutions are actually slightly broken. They won't work if you
+**Note:** the regex solutions are actually slightly broken. They won't work if you
 have a keyword that is a prefix or suffix of another. But hey, who really uses
 regex when it's not slightly broken?
 
-Also keep in mind that building the search tree (the `add_needle()` and
+Also keep in mind that building the search tree (the `addNeedle()` and
 `finalize()` calls) takes time. So you'll get the best speed-up if you're
 reusing the same keywords and calling `search()` many times.
+
+# Running tests
+
+```$php
+$ composer install
+$ ./vendor/bin/phpunit
+```

@@ -1,6 +1,6 @@
 <?php
 
-$needles = array('abandonment', 'abashed', 'abashments', 'abduction',
+$needles = ['abandonment', 'abashed', 'abashments', 'abduction',
 'aberrant', 'abiding', 'abidingly', 'abjures', 'ablution', 'abolishes',
 'abominably', 'aborted', 'abrasion', 'abridgment', 'abscesses', 'absconds',
 'absences', 'absinthe', 'absolves', 'absorbingly', 'abundant', 'abused',
@@ -532,7 +532,7 @@ $needles = array('abandonment', 'abashed', 'abashments', 'abduction',
 'remonstrates', 'remorse', 'removes', 'remunerated', 'rendering',
 'renditions', 'reneged', 'renominate', 'renovators', 'reorders',
 'repatriates', 'repave', 'repaying', 'repeatedly', 'repertoires', 'replied',
-'reprehend', 'reprieves', 'reprimanded');
+'reprehend', 'reprieves', 'reprimanded'];
 
 $haystack = 'unscathed grampus antinuclear avenged waste oversee doggies spumes
 senators balk gooseberries grilles respelled ceramists outlaid maladroitly

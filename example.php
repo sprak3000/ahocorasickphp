@@ -2,26 +2,26 @@
 
 /* Just an example of how to use the library. */
 
-require('ahocorasick.php');
+require 'AhoCorasick.php';
 
 
 
 /* Say we have the following text:
  * "a carted mart lot one blue ted"
- * and we want to find each occurance in
+ * and we want to find each occurrence in
  * it of the following list of keywords:
  * 'art', 'cart', 'ted'
  */
 
 
 /* Create the search engine. */
-$ac = new ahocorasick();
+$ac = new AhoCorasick();
 
 
 /* Add each keyword we'll search for. */
-$ac->add_needle('art');
-$ac->add_needle('cart');
-$ac->add_needle('ted');
+$ac->addNeedle('art');
+$ac->addNeedle('cart');
+$ac->addNeedle('ted');
 
 
 /* Now call finalize. This lets the engine
@@ -40,5 +40,3 @@ $found = $ac->search('a carted mart lot one blue ted');
 /* It'll return an array with each keyword found and its
  * position in the search text. */
 print_r($found);
-
-
